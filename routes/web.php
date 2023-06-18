@@ -17,12 +17,11 @@ use App\Models\Task;
 
 Route::get('/', function () {
     return view('tasks', [
-        'heading' => 'Uzdevumi?',
         'tasks' => Task::all()
     ]);
 });
 
-Route::get('/tasks/{id}', function($id) {
+Route::get('/task/{id}', function($id) {
     return view('task', [
         'task' => Task::find($id)
     ]);

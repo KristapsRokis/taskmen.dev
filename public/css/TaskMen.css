@@ -7,7 +7,7 @@ html{
     width: 100%;
     font-family: 'Roboto', sans-serif;
     overflow:auto;
-    background-color: #ff0000;
+    background-color: #ffffff;
 }
 
 p, li{
@@ -23,7 +23,6 @@ h2{
 }
 
 a{
-    font-weight: bold;
     text-decoration:none;
     color: black;
 }
@@ -31,6 +30,7 @@ a{
 .page-top{
     width: 100%;
     height: 14vw;
+    font-weight: bold;
 }
 
 .page-top ul li{
@@ -50,7 +50,7 @@ a{
 
 .small-title{
     position: absolute;
-    left: 45%;
+    left: 48%;
 }
 
 .top-right{
@@ -119,15 +119,15 @@ a{
     margin-top: 2vw;
     margin-left: 7.5%;
     margin-right: 7.4%;
-    border:0.15vw solid #000000;
 }
 
 .legenda-parent{
-    background-color: rgb(230, 0, 255);
+    background-color: black;
     display: block;
     padding-top: 1vw;
     padding-bottom: 1vw;
     margin: 0;
+    color: white;
 }
 
 .legenda-parent li{
@@ -135,92 +135,139 @@ a{
     display: inline-block;
     margin-left: 1vw;
     margin-right: 1vw;
+    text-align: center;
 }
 
 .legenda-title{
-    background-color: darkorange;
     width: 20%;
-    text-align: center;
 }
 
 .legenda-desc{
-    background-color: darkorange;
     width: 20%;
-    text-align: center;
+    padding-right: 2%;
 }
 
 .legenda-due{
-    background-color: darkorange;
     width: 10%;
-    text-align: center;
 }
 
 .legenda-prority{
-    background-color: darkorange;
-    width: 9%;
-    text-align: center;
+    width: 10%;
 }
 
 .legenda-status{
-    background-color: darkorange;
-    width: 15%;
-    text-align: center;
+    width: 20%;
+    
 }
 
 .uzdevums{
-    background-color: rgba(210, 105, 30, 0.459);
+    /* background-color: rgba(166, 158, 152, 0.459); */
     display: block;
     padding-top: 1.5vw;
     padding-bottom: 1.5vw;
     margin: 0;
+    border-bottom:0.10vw solid #000000;
+    border-left: 0.10vw solid #000000;
+    border-right: 0.10vw solid #000000;;
+}
+
+.uzdevums:hover{
+    background-color: rgb(0, 0, 0, 0.1);
 }
 
 .uzdevums li{
-    background-color: gold;
     list-style: none;
     display: inline-block;
     margin-left: 1vw;
     margin-right: 1vw;
     height: 2vw;
     overflow:hidden;
+    text-align: center;
 }
 
 .title{
-    background-color: blue;
     width: 20%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .desc{
-    background-color: darkmagenta;
     width: 20%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-right: 2%;
 }
 
 .due{
-    background-color: lightslategray;
     width: 10%;
 }
 
 .priority{
-    background-color: pink;
-    width: 9%;
+    width: 10%;
 }
 
 .status{
-    background-color: sienna;
-    width: 15%;
+    width: 20%;
 }
 
-.submit-kaste-task{
-    background-color: red;
-    width: 5%;
-    height: 2.5vw;
+.uzdevums-single{
+    margin-left: 7.5%;
+    margin-right: 7.5%;
+    margin-top: 3vw;
+    background-color: rgb(0, 0, 0, 0.1);
+    height: 23vw;
 }
 
-.submit-task{
-    width: 7vw;
-    height: 2.5vw;
-    font-size: 1.5vw;
-    background-color: rgb(255, 255, 255);
+.uzdevums-task{
+    padding-top: 0.8vw;
+    margin-left: 3vw;
+}
+
+.uzdevums-desc{
+    margin-top: 3vw;
+    margin-left: 3vw;
+}
+
+.uzdevums-bottom{
+    margin-top: 3vw;
+    padding-top: 1.5vw;
+    border-top: 0.1vw solid #000000;
+}
+
+.uzdevums-parrent{
+    display: block;
+    text-decoration:none;
+    margin-right: 3vw;
+}
+
+.uzdevums-parrent li{
+    display: inline;
+}
+
+.termins{
+    margin-left: 3vw;
+    margin-right: 31%;
+}
+
+.prioritate{
+    margin-right: 15%;
+}
+
+.submit-uzd{
+    margin-top: 1.5vw;
+    text-align: center;
+}
+
+.submit-uzdevums{
+    width: 25%;
+    height: 3.75vw;
     font-weight: bold;
+    font-size: 1.5vw;
+    background-color: white;
     border-radius: 0.2vw;
+}
+
+.submit-uzdevums:hover{
+    background-color: #000000;
+    color: white;
 }
