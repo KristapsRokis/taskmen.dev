@@ -98,7 +98,7 @@ a{
 .submit-kaste{
     position: absolute;
     right: 8.3%;
-    top: 14.8vw;
+    top: 14.95vw;
 }
 
 .submit{
@@ -175,8 +175,8 @@ a{
 
 .uzdevums{
     display: block;
-    padding-top: 1.5vw;
-    padding-bottom: 1.5vw;
+    padding-top: 1.6vw;
+    padding-bottom: 1.2vw;
     margin: 0;
     border-bottom:0.10vw solid #000000;
     border-left: 0.10vw solid #000000;
@@ -446,6 +446,7 @@ a{
     top: 3%;
     left: 9.5%;
     font-size: 1.5vw;
+    color: red;
 }
 
 .pages{
@@ -521,4 +522,25 @@ a{
 .registerp p{
     font-size: 1vw;
     margin-top: 1.4vw;
+}
+
+.amats{
+    text-align: right;
+    float: right;
+    margin-right: 3vw;
+    margin-top: -4vw;
+    width: 35%;
+    font-size: 1vw;
+    font-family: 'Roboto', sans-serif;
+}
+
+.lang{
+    position: fixed;
+    bottom: 0.8vw;
+    left: 0;
+}
+
+.lang a{
+    margin-left: 0.5vw;
+    font-size: 0.9vw;
 }

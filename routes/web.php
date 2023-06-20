@@ -18,7 +18,7 @@ use App\Http\Controllers\UserController;
 */
 
 //Visi uzdevumi
-Route::get('/', [TaskController::class, 'index'])->middleware('auth');
+Route::get('/', [TaskController::class, 'index'])->middleware('auth')->name('tasks');
 
 //Kārtot pēc termiņa
 Route::get('/termins', [TaskController::class, 'termins']);
@@ -30,22 +30,25 @@ Route::get('/prioritate', [TaskController::class, 'prioritate']);
 Route::get('/statuss', [TaskController::class, 'statuss']);
 
 //Izveidot uzdevumu
-Route::get('/task/create', [TaskController::class, 'create'])->middleware('auth');
+Route::get('/task/create', [TaskController::class, 'create'])->middleware('admin');
 
 //Rediģēt uzdevumu
-Route::get('/task/{task}/edit', [TaskController::class, 'edit'])->middleware('auth');
+Route::get('/task/{task}/edit', [TaskController::class, 'edit'])->middleware('admin');
 
 //Atjaunot uzdevumu
-Route::put('/task/{task}', [TaskController::class, 'update'])->middleware('auth');
+Route::put('/task/{task}/edit', [TaskController::class, 'update'])->middleware('auth');
+
+//Iesniegt uzdevumu
+Route::put('/task/{task}', [TaskController::class, 'updatestatus'])->middleware('auth');
 
 //Dzēst uzdevumu
-Route::delete('/task/{task}', [TaskController::class, 'destroy'])->middleware('auth');
+Route::delete('/task/{task}', [TaskController::class, 'destroy'])->middleware('admin');
 
 //Saglabāt uzdevumu
 Route::post('/task', [TaskController::class, 'store'])->middleware('auth');
 
 //Viens uzdevums
-Route::get('/task/{task}', [TaskController::class, 'show']);
+Route::get('/task/{task}', [TaskController::class, 'show'])->middleware('auth');
 
 //Izveidot lietotāju
 Route::get('/register', [UserController::class, 'create'])->middleware('guest');
@@ -54,7 +57,7 @@ Route::get('/register', [UserController::class, 'create'])->middleware('guest');
 Route::post('/users', [UserController::class, 'store']);
 
 //Izrakstīties
-Route::post('/logout', [UserController::class, 'logout'])->middleware('auth');
+Route::post('/logout', [UserController::class, 'logout']);
 
 //Pierakstīties forma
 Route::get('/login', [UserController::class, 'login'])->name('login')->middleware('guest');
@@ -62,11 +65,10 @@ Route::get('/login', [UserController::class, 'login'])->name('login')->middlewar
 //Pierakstīties
 Route::post('/users/authenticate', [UserController::class, 'authenticate']);
 
-
-
-
-
-
-
-
-
+//Valodas
+Route::get('locale/{locale}', function ($locale) {
+    if (in_array($locale, ['en', 'lv'])) {
+        session(['locale' => $locale]);
+    }
+    return redirect('/');
+})->name('locale');

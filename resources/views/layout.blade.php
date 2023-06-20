@@ -48,5 +48,11 @@
     @yield('content')
 
     <x-flash-message />
+    <div class="lang">
+        <a href="{{ route('locale', ['locale' => 'lv']) }}">Latviešu</a>
+        <a href="{{ route('locale', ['locale' => 'en']) }}">English</a>
+    </div>
+    
+
 </body>
 </html>

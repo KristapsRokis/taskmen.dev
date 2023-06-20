@@ -11,7 +11,7 @@ class Task extends Model
 
     protected $fillable = ['title', 'description', 'duedate', 'priority', 'tags'];
 
-    public function scopeFilter($query, array $filters, $userTags) {
+    public function scopeFilter($query, array $filters) {
         if ($filters['tagPriority'] ?? false) {
             $query->where('priority', 'like', '%' . request('tagPriority') . '%');
         }
@@ -21,15 +21,6 @@ class Task extends Model
         if ($filters['search'] ?? false) {
             $query->where('title', 'like', '%' . request('search') . '%')
             ->orWhere('description', 'like', '%' . request('search') . '%');
-        }
-        if ($userTags) {
-            $tags = explode(',', $userTags);
-            
-            $query->where(function ($query) use ($tags) {
-                foreach ($tags as $tag) {
-                    $query->orWhere('tags', 'like', '%' . $tag . '%');
-                }
-            });
         }
     }
 }

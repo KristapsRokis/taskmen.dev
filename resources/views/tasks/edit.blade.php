@@ -10,7 +10,7 @@
                 Rediģēt uzdevumu
             </h2>
 
-            <form method="POST" action="/task/{{$task->id}}" class="c-form">
+            <form method="POST" action="/task/{{$task->id}}/edit" class="c-form">
                 @csrf
                 @method('PUT')
                 <div class="c-title">

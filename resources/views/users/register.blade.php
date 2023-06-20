@@ -56,7 +56,6 @@
                         value="{{old('tags')}}">
                         <option value="Finanses" {{ old('tags') == 'Finanses' ? 'selected' : '' }}>Finanšu pārstāvis</option>
                         <option value="Apkalpojošais" {{ old('tags') == 'Apkalpojošais' ? 'selected' : '' }}>Apkalpojošais personāls</option>
-                        <option value="Kolektīvs" {{ old('tags') == 'Kolektīvs' ? 'selected' : '' }}>Kolektīvs</option>
                     </select>
                     </select>
                     @error('tags')

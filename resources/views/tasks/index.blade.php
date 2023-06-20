@@ -26,7 +26,6 @@
                 <a href="/statuss">Statuss</a>
             </li>
         </ul>
-
         @foreach($tasks as $task)
             <x-task-card :task="$task"/>
         @endforeach
@@ -35,6 +34,8 @@
     
 @endif
 
-@include('partials._createbutton')
+@if(auth()->user()->admin)
+    @include('partials._createbutton')
+@endif
 
 @endsection

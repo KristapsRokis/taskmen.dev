@@ -12,19 +12,21 @@ class TaskController extends Controller
     //all
     public function index() {
         
-        if(auth()->user()->admin=='yes') {
-            $userTags='';
-            return view('tasks.index', ['tasks' => Task::latest()->filter(request()->only([
-                'tagPriority', 'tagStatus', 'search']), $userTags)->get()
-            ]);
+        if(auth()->user()->admin) {
+            $userTags=['Kolektīvs', 'Apkalpojošais', 'Finanses'];
         }
+
         else{
             $userTags=auth()->user()->tags;
-            return view('tasks.index', [
-                'tasks' => Task::latest()->filter(request()->only([
-                    'tagPriority', 'tagStatus', 'search']), $userTags)->get()
-            ]);
-        }  
+            if (is_string($userTags)) {
+                $userTags = [$userTags, 'Kolektīvs'];
+            }
+        }
+
+        return view('tasks.index', [
+            'tasks' => Task::latest()->filter(request()->only([
+                'tagPriority', 'tagStatus', 'search', ]))->whereIn('tags', $userTags)->get()
+        ]);
     }
 
     public function termins(Request $request) {
@@ -36,14 +38,26 @@ class TaskController extends Controller
         } else {
             $terminsOrder = 'desc';
         }
+
+        if(auth()->user()->admin) {
+            $userTags=['Kolektīvs', 'Apkalpojošais', 'Finanses'];
+        }
+        else{
+            $userTags=auth()->user()->tags;
+            if (is_string($userTags)) {
+                $userTags = [$userTags, 'Kolektīvs'];
+            }
+        }
         
         $request->session()->put('terminsOrder', $terminsOrder);
-    
-        return view('tasks.index', [
-            'tasks' => DB::table('tasks')
+
+        $tasks = DB::table('tasks')
+                ->whereIn('tags', $userTags)
                 ->orderBy('duedate', $terminsOrder)
-                ->get()
-        ]);
+                ->get();
+
+        return view('tasks.index', compact('tasks'));  
+            
     }
 
     public function prioritate(Request $request) {
@@ -55,11 +69,22 @@ class TaskController extends Controller
         } else {
             $sortOrder = 'desc';
         }
+
+        if(auth()->user()->admin) {
+            $userTags=['Kolektīvs', 'Apkalpojošais', 'Finanses'];
+        }
+        else{
+            $userTags=auth()->user()->tags;
+            if (is_string($userTags)) {
+                $userTags = [$userTags, 'Kolektīvs'];
+            }
+        }
         
         $request->session()->put('sortOrderPriority', $sortOrder);
 
         return view('tasks.index', [
             'tasks' => DB::table('tasks')
+                ->whereIn('tags', $userTags)
                 ->orderBy('priority', $sortOrder)
                 ->get()
         ]);
@@ -74,11 +99,22 @@ class TaskController extends Controller
         } else {
             $sortOrder = 'desc';
         }
+
+        if(auth()->user()->admin) {
+            $userTags=['Kolektīvs', 'Apkalpojošais', 'Finanses'];
+        }
+        else{
+            $userTags=auth()->user()->tags;
+            if (is_string($userTags)) {
+                $userTags = [$userTags, 'Kolektīvs'];
+            }
+        }
         
         $request->session()->put('sortOrderStatus', $sortOrder);
 
         return view('tasks.index', [
             'tasks' => DB::table('tasks')
+                ->whereIn('tags', $userTags)
                 ->orderBy('status', $sortOrder)
                 ->get()
         ]);
@@ -86,6 +122,20 @@ class TaskController extends Controller
 
     //single
     public function show(Task $task) {
+        $userTags=auth()->user()->tags;
+        $tags = explode(',', $userTags);
+        foreach ($tags as $tag) {
+            if($tag == $task['tags'] or auth()->user()->admin) {
+                return view('tasks.show', [
+                    'task' => $task
+                ]);
+                break;
+            }
+            else {
+                return redirect('/')->with('message', 'Jums nav pieejams šis uzdevums!');
+            }
+        }
+
         return view('tasks.show', [
             'task' => $task
         ]);
@@ -118,13 +168,30 @@ class TaskController extends Controller
             'title' => ['required', 'max:255'],
             'description' => 'required',
             'duedate' => ['required', 'date', 'after_or_equal:now'],
-            'priority' => 'required',
-            'tags'=> 'required'
+            'priority' => 'required'
         ]);
 
         $task->update($formFields);
 
-        return back()->with('message', 'Uzdevums veiksmīgi rediģēts!');
+        return redirect('/')->with('message', 'Uzdevums veiksmīgi rediģēts!');
+    }
+
+    public function updatestatus(Request $request, Task $task){
+        $formFields = $request->validate([
+            'status' => 'required'
+        ]);
+
+        if($task->status=='Iesniegts'){
+            $task->status = 'Gaida iesniegumu';
+            $task->save();
+        }
+
+        else{
+            $task->status = $formFields['status'];
+            $task->save();
+        }
+
+        return redirect('/task/'.$task->id)->with('message', 'Uzdevums veiksmīgi iesniegts!');
     }
 
     public function destroy(Task $task) {
