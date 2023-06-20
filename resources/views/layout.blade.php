@@ -6,14 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>TaskMen</title>
     <link rel="stylesheet" href="/css/TaskMen.css">
+    <script src="//unpkg.com/alpinejs" defer></script>
 </head>
 <body>
     <div class="page-top">
-        <a href="index.html" class="logo-place">
+        <a href="/" class="logo-place">
             <img class="logo" src="/img/logo.png" alt="Logo" class="logo_img"/>
         </a>
         <div class="big-title">
-            <a href="index.html">
+            <a href="/">
                 <h1>TaskMen</h1>
             </a>
         </div>
@@ -21,34 +22,31 @@
             <h2>Uzdevumi pa taisno pie tevis!</h2>
         </div>
         <ul class="top-right">
+            @auth
             <li>
-                <a href="register.html" class="register">
-                    <i class="register_text"></i>Reģistrēties</a>
+                    <p>Lietotājs {{auth()->user()->name}}</p>
             </li>
             <li>
-                <a href="login.html" class="login"
-                    ><i class="login_text"></i>Pieslēgties</a>
+                <form class="logout" method="POST" action="/logout">
+                    @csrf
+                    <button type="submit" class="logoutbut">Logout</button>
+                </form>
             </li>
+            @else
+            <li>
+                <a href="/register" class="register">
+                    Reģistrēties</a>
+            </li>
+            <li>
+                <a href="/login" class="login">
+                    Pieslēgties</a>
+            </li>
+            @endauth
         </ul>
     </div>
 
-    <form action="">
-        <div class="search">
-            <input
-                type="text"
-                name="search"
-                class="input"
-                placeholder="Meklēt uzdevumus"
-            />
-            <div class="submit-kaste" id="submit-kaste">
-                <button type="submit" class="submit">
-                    Meklēt
-                </button>
-            </div>
-        </div>
-    </form>
-
     @yield('content')
-    
+
+    <x-flash-message />
 </body>
 </html>

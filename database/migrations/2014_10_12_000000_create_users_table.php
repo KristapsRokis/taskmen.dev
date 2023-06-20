@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('tags')->default('Kolektīvs');
+            $table->string('admin')->default('no');
             $table->rememberToken();
             $table->timestamps();
         });

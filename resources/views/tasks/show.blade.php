@@ -1,6 +1,8 @@
 @extends('layout')
 @section('content')
 
+@include('partials._search')
+
 <div class="uzdevums-single">
     <div class="uzdevums-task">
         <h2>{{$task['title']}}</h2>
@@ -20,8 +22,18 @@
             </button>
         </div>
     </div>
+    <div class="edit">
+        <a href="/task/{{$task->id}}/edit">Rediģēt</a>
+    </div>
+    <form method="POST" action="/task/{{$task->id}}">
+        @csrf
+        @method('DELETE')
+        <button class="delete">Dzēst</button>
+    </form>
 </div>
 
+
+@include('partials._createbutton')
 
 
 @endsection

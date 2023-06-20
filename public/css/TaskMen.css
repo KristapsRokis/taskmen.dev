@@ -10,7 +10,7 @@ html{
     background-color: #ffffff;
 }
 
-p, li{
+p, li, a{
     font-size: 1.5vw;
 }
 
@@ -68,8 +68,8 @@ a{
     padding: 0.5vw;
     margin-left: 3vw;
     margin-top: 0.5vw;
-
 }
+
 
 .top-right li a{
     padding: 0.5vw;
@@ -98,7 +98,7 @@ a{
 .submit-kaste{
     position: absolute;
     right: 8.3%;
-    top: 14.95vw;
+    top: 14.8vw;
 }
 
 .submit{
@@ -149,30 +149,42 @@ a{
 
 .legenda-due{
     width: 10%;
+    padding-right: 1%;
+}
+
+.legenda-due a{
+    color: #ffffff;
 }
 
 .legenda-prority{
-    width: 10%;
+    width: 9%;
+}
+
+.legenda-prority a{
+    color: #ffffff;
 }
 
 .legenda-status{
     width: 20%;
-    
 }
 
+.legenda-status a{
+    color: #ffffff;
+}
+
+
 .uzdevums{
-    /* background-color: rgba(166, 158, 152, 0.459); */
     display: block;
     padding-top: 1.5vw;
     padding-bottom: 1.5vw;
     margin: 0;
     border-bottom:0.10vw solid #000000;
     border-left: 0.10vw solid #000000;
-    border-right: 0.10vw solid #000000;;
+    border-right: 0.10vw solid #000000;
 }
 
 .uzdevums:hover{
-    background-color: rgb(0, 0, 0, 0.1);
+    background-color: rgb(0, 0, 0, 0.05);
 }
 
 .uzdevums li{
@@ -200,10 +212,11 @@ a{
 
 .due{
     width: 10%;
+    padding-right: 1%;
 }
 
 .priority{
-    width: 10%;
+    width: 9%;
 }
 
 .status{
@@ -214,8 +227,9 @@ a{
     margin-left: 7.5%;
     margin-right: 7.5%;
     margin-top: 3vw;
-    background-color: rgb(0, 0, 0, 0.1);
+    background-color: rgb(0, 0, 0, 0.05);
     height: 23vw;
+    border-radius: 0.5vw;
 }
 
 .uzdevums-task{
@@ -270,4 +284,241 @@ a{
 .submit-uzdevums:hover{
     background-color: #000000;
     color: white;
+}
+
+.create-task-button{
+    background-color: rgb(0, 0, 0);
+    position: sticky;
+    width: 15vw;
+    height: 3vw;
+    bottom: 2.5%;
+    margin-right: 7.4%;
+    margin-top: 1%;
+    float: right;
+    text-align: center;
+    padding-top: 1%;
+    color: white;
+    border: 0.2vw solid #000000;
+    border-radius: 0.2vw;
+}
+
+.create-task-button:hover{
+    background-color: white;
+    color: #000000;
+
+}
+
+.empty{
+    margin-left: 7.5%;
+    margin-right: 7.4%;
+    text-align: center;
+    font-size: 2vw;
+    margin-top: 4vw;
+    margin-bottom: 2vw;
+}
+
+.c-box{
+    margin-left: 7.5%;
+    margin-right: 7.4%;
+    margin-top: 3%;
+}
+
+.c-subbox{
+    background-color: rgb(0, 0, 0, 0.075);
+    width: 40%;
+    margin-left: 30%;
+    margin-right: 30%;
+    padding-top: 0.75%;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5vw;
+    height: auto;
+    padding-bottom: 2vw;
+}
+
+.c-form{
+    margin-top: 3vw;
+}
+
+.c-form div{
+    margin-left: 9%;
+    margin-right: 10%;
+    line-height: 0.2vw;
+}
+
+.c-ramis{
+    width: 100%;
+    height: 2vw;
+    font-size: 1.5vw;
+    margin-bottom: 2vw; 
+}
+
+.c-ramis-desc{
+    width: 100%;
+    height: 5vw;
+    font-size: 1vw;
+    margin-bottom: 2vw; 
+}
+.center{
+    text-align: center;
+}
+
+.c-poga{
+    width: 60%;
+    height: 3.3vw;
+    border-radius: 0.3vw;
+    font-size: 1.5vw;
+    background-color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+}
+
+.atcelt{
+    float: right;
+    background-color: azure;
+    width: 8vw;
+    height: 3.1vw;
+    border-radius: 0.3vw;
+    border: 0.15vw solid #000000;
+    background-color: black;
+    color:white;
+    text-align: center;
+}
+
+.atcelt-re{
+    float: right;
+    background-color: azure;
+    height: 3.1vw;
+    width: 8vw;
+    border-radius: 0.3vw;
+    border: 0.15vw solid #000000;
+    background-color: black;
+    color:white;
+    text-align: center;
+    margin-right: -0.3vw;
+}
+
+.atcelt-re:hover{
+    background-color: white;
+    color: black;
+}
+
+.atcelt-re p{
+    font-size: 1vw;
+    line-height: normal;
+    margin-top: 0.4vw;
+}
+
+.c-poga:hover{
+    background-color: black;
+    color: white;
+}
+
+.atcelt:hover{
+    background-color: white;
+    color: black;
+}
+
+.error1{
+    line-height: normal;
+    font-size: 1vw;
+    margin-top: -3vw;
+    margin-bottom: 2vw;
+    color: red;
+}
+
+.error2{
+    line-height: normal;
+    font-size: 1vw;
+    margin-top: -1.5vw;
+    margin-bottom: 2vw;
+    color: red;
+}
+
+.error3{
+    line-height: normal;
+    font-size: 1vw;
+    margin-top: -1.5vw;
+    margin-bottom: 2vw;
+    color: red;
+}
+
+.message{
+    position: fixed;
+    top: 3%;
+    left: 9.5%;
+    font-size: 1.5vw;
+}
+
+.pages{
+    margin-top: 2vw;
+    font-size: 1vw;
+}
+
+.edit{
+    margin-left: 4vw;
+    margin-top: -3.5vw;
+    width: auto;
+}
+
+.edit a{
+    font-size: 1vw;
+}
+
+.delete{
+    margin-top: 1.25vw;
+    margin-left: 4vw;
+    font-size: 1vw;
+    border-radius: 0.2vw;
+    background-color: none;
+    border:none;
+    font-family: 'Roboto', sans-serif;
+}
+
+.delete:hover{
+    color: red;
+}
+
+.logout{
+    position: absolute;
+    right: 1vw;
+    top: 2.3vw;
+    height: 5vw;
+}
+
+.logoutbut{
+    margin-right: -3vw;
+    height: 2vw;
+    width: 4vw;
+    font-size: 1vw;
+    font-family: 'Roboto', sans-serif;
+    background-color: #000000;
+    color: #ffffff;
+    border-radius: 0.2vw;
+}
+
+.logoutbut:hover{
+    background-color: #ffffff;
+    color: black;
+}
+
+.registerp{
+    float: right;
+    background-color: azure;
+    height: 3.1vw;
+    width: 8vw;
+    border-radius: 0.3vw;
+    border: 0.15vw solid #000000;
+    background-color: black;
+    color:white;
+    text-align: center;
+    margin-right: -0.3vw;
+}
+
+.registerp:hover{
+    background-color: white;
+    color: black;
+}
+
+.registerp p{
+    font-size: 1vw;
+    margin-top: 1.4vw;
 }

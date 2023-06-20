@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->longText('description');
             $table->date('duedate');
-            $table->string('status');
+            $table->string('status')->default('Gaida iesniegumu');
             $table->string('priority');
             $table->string('tags');
             $table->timestamps();
