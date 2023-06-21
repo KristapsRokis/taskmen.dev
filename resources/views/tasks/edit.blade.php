@@ -110,7 +110,7 @@
                         @lang('messages.tedit')
                     </button>
 
-                    <a href="/" class="atcelt"><p>@lang('messages.cancel')</p> </a>
+                    <a href="/task/{{$task->id}}" class="atcelt"><p>@lang('messages.cancel')</p> </a>
                 </div>
             </form>
         </div>

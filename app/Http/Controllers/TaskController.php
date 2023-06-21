@@ -175,7 +175,7 @@ class TaskController extends Controller
 
         $task->update($formFields);
 
-        return redirect('/')->with('message', __('messages.cedit'));
+        return redirect('/task/'.$task->id)->with('message', __('messages.cedit'));
     }
 
     public function updatestatus(Request $request, Task $task){
