@@ -7,7 +7,7 @@
             class="c-subbox"
         >
             <h2 class="center">
-                Rediģēt uzdevumu
+                @lang('messages.tedit')
             </h2>
 
             <form method="POST" action="/task/{{$task->id}}/edit" class="c-form">
@@ -17,7 +17,7 @@
                     <label
                         for="title"
                         class="c-nosaukums"
-                        ><p>Nosaukums<p></label
+                        ><p>@lang('messages.tit')<p></label
                     >
                     <input
                         type="text"
@@ -35,7 +35,7 @@
                         for="description"
                         class="c-nosaukums"
                     >
-                        <p>Apraksts</p>
+                        <p>@lang('messages.desc')</p>
                     </label>
                     <textarea
                         class="c-ramis-desc"
@@ -49,7 +49,7 @@
 
                 <div class="c-title">
                     <label for="duedate" class="c-nosaukums"
-                        ><p>Termiņš</p></label
+                        ><p>@lang('messages.due')</p></label
                     >
                     <input
                         type="date"
@@ -66,16 +66,16 @@
                     <label
                         for="priority"
                         class="c-nosaukums"
-                        ><p>Prioritāte<p></label
+                        ><p>@lang('messages.priority')<p></label
                     >
                     <select
                         type="text"
                         class="c-ramis"
                         name="priority"
                         value="{{$task->priority}}">
-                        <option value="Augsta" {{ $task->priority == 'Augsta' ? 'selected' : '' }}>Augsta</option>
-                        <option value="Vidēja" {{ $task->priority == 'Vidēja' ? 'selected' : '' }}>Vidēja</option>
-                        <option value="Zema" {{ $task->priority == 'Zema' ? 'selected' : '' }}>Zema</option>
+                        <option value="Augsta" {{ $task->priority == 'Augsta' ? 'selected' : '' }}>@lang('messages.high')</option>
+                        <option value="Vidēja" {{ $task->priority == 'Vidēja' ? 'selected' : '' }}>@lang('messages.medium')</option>
+                        <option value="Zema" {{ $task->priority == 'Zema' ? 'selected' : '' }}>@lang('messages.low')</option>
                     </select>
                     @error('priority')
                         <p class="error4">{{$message}}</p>
@@ -86,16 +86,16 @@
                     <label
                         for="tags"
                         class="c-nosaukums"
-                        ><p>Piešķirt uzdevumu<p></label
+                        ><p>@lang('messages.add')<p></label
                     >
                     <select
                         type="text"
                         class="c-ramis"
                         name="tags"
                         value="{{$task->tags}}">
-                        <option value="Finanses" {{ $task->tags == 'Finanses' ? 'selected' : '' }}>Finanšu pārstāvji</option>
-                        <option value="Kolektīvs" {{ $task->tags == 'Kolektīvs' ? 'selected' : '' }}>Kolektīvs</option>
-                        <option value="Apkalpojošais" {{ $task->tags == 'Apkalpojošais' ? 'selected' : '' }}>Apkalpojošais personāls</option>
+                        <option value="Finanses" {{ $task->tags == 'Finanses' ? 'selected' : '' }}>@lang('messages.finanse')</option>
+                        <option value="Apkalpojošais" {{ $task->tags == 'Apkalpojošais' ? 'selected' : '' }}>@lang('messages.apkalp')</option>
+                        <option value="Kolektīvs" {{ $task->tags == 'Kolektīvs' ? 'selected' : '' }}>@lang('messages.staff')</option>
                     </select>
                     </select>
                     @error('tags')
@@ -107,10 +107,10 @@
                     <button
                         class="c-poga"
                     >
-                        Rediģēt uzdevumu 
+                        @lang('messages.tedit')
                     </button>
 
-                    <a href="/" class="atcelt"><p> Atcelt</p> </a>
+                    <a href="/" class="atcelt"><p>@lang('messages.cancel')</p> </a>
                 </div>
             </form>
         </div>

@@ -6,7 +6,7 @@
             class="c-subbox"
         >
             <h2 class="center">
-                Pieslēgties
+                @lang('messages.login')
             </h2>
 
             <form method="POST" action="/users/authenticate" class="c-form">
@@ -15,7 +15,7 @@
                     <label
                         for="email"
                         class="c-nosaukums"
-                        ><p>E-pasts<p></label
+                        ><p>@lang('messages.email')<p></label
                     >
                     <input
                         type="email"
@@ -31,7 +31,7 @@
                     <label
                         for="password"
                         class="c-nosaukums"
-                        ><p>Parole<p></label
+                        ><p>@lang('messages.password')<p></label
                     >
                     <input
                         type="password"
@@ -47,10 +47,10 @@
                     <button
                         class="c-poga"
                     >
-                        Pieslēgties 
+                    @lang('messages.login') 
                     </button>
 
-                    <a href="/register" class="registerp"><p>Reģistrēties</p> </a>
+                    <a href="/register" class="registerp"><p>@lang('messages.registration') </p> </a>
                 </div>
             </form>
         </div>

@@ -140,7 +140,7 @@ class TaskController extends Controller
             }
         }
     
-        return redirect('/')->with('message', 'Jums nav pieejams šis uzdevums!');
+        return redirect('/')->with('message', __('messages.admin'));
     }
 
     public function create() {
@@ -158,7 +158,7 @@ class TaskController extends Controller
 
         Task::create($formFields);
 
-        return redirect('/')->with('message', 'Uzdevums veiksmīgi izveidots!');
+        return redirect('/')->with('message', __('messages.success'));
     }
 
     public function edit(Task $task) {
@@ -175,7 +175,7 @@ class TaskController extends Controller
 
         $task->update($formFields);
 
-        return redirect('/')->with('message', 'Uzdevums veiksmīgi rediģēts!');
+        return redirect('/')->with('message', __('messages.cedit'));
     }
 
     public function updatestatus(Request $request, Task $task){
@@ -193,11 +193,11 @@ class TaskController extends Controller
             $task->save();
         }
 
-        return redirect('/task/'.$task->id)->with('message', 'Uzdevums veiksmīgi iesniegts!');
+        return redirect('/');
     }
 
     public function destroy(Task $task) {
         $task->delete();
-        return redirect('/')->with('message', 'Uzdevums veiksmīgi izdzēsts!');
+        return redirect('/')->with('message',  __('messages.cdel'));
     }
 }

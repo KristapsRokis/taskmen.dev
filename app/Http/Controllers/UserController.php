@@ -27,7 +27,7 @@ class UserController extends Controller
 
         auth()->login($user);
 
-        return redirect('/')->with('message', 'Lietotājs izveidots, esat pieslēdzies!');
+        return redirect('/')->with('message', __('messages.store'));
     }
 
     public function logout(Request $request) {
@@ -36,7 +36,7 @@ class UserController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/')->with('message', 'Jūs esat izrakstījies!');
+        return redirect('/')->with('message', __('messages.exit'));
     }
 
     public function login() {
@@ -52,10 +52,10 @@ class UserController extends Controller
         if(auth()->attempt($formFields)) {
             $request->session()->regenerate();
 
-            return redirect('/')->with('message', 'Jūs esat pievienojies!');
+            return redirect('/')->with('message', __('messages.authen'));
         }
 
-        return back()->withErrors(['email' => 'Invalid Credentials'])->onlyInput('email');
+        return back()->withErrors(['email' => __('messages.emailerr')])->onlyInput('email');
     }
 
 }

@@ -16,8 +16,8 @@
     <div class="uzdevums-bottom">
         <u class="uzdevums-parrent">
             <li class="termins">{{$task['duedate']}}</li>
-            <li class="prioritate">Prioritāte: {{$task['priority']}}</li>
-            <li class="statuss">Statuss: {{$task['status']}}</li>
+            <li class="prioritate">@lang('messages.upriority'){{$task['priority']}}</li>
+            <li class="statuss">@lang('messages.ustatus'){{$task['status']}}</li>
         </u>
         <form method="POST" action="/task/{{$task->id}}">
             @csrf
@@ -25,7 +25,7 @@
             <div class="submit-uzd" id="submit-uzd">
                 <input type="hidden" name="status" value="Iesniegts">
                 <button type="submit" class="submit-uzdevums">
-                    Pabeigts
+                    @lang('messages.done')
                 </button>
             </div>
         </form>
@@ -33,12 +33,12 @@
     </div>
     @if(auth()->user()->admin)
     <div class="edit">
-        <a href="/task/{{$task->id}}/edit">Rediģēt</a>
+        <a href="/task/{{$task->id}}/edit">@lang('messages.edit')</a>
     </div>
     <form method="POST" action="/task/{{$task->id}}">
         @csrf
         @method('DELETE')
-        <button class="delete">Dzēst</button>
+        <button class="delete">@lang('messages.delete')</button>
     </form>
     @endif
 </div>

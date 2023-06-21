@@ -533,3 +533,14 @@ a{
     font-size: 1vw;
     font-family: 'Roboto', sans-serif;
 }
+
+.lang{
+    position: sticky;
+    bottom: 1vw;
+    margin-left: 1vw;
+    margin-top: 2vw;
+}
+
+.lang a{
+    margin-right: 0.5vw;
+}

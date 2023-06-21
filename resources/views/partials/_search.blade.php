@@ -4,11 +4,11 @@
             type="text"
             name="search"
             class="input"
-            placeholder="Meklēt uzdevumus"
+            placeholder=@lang('messages.plasearch')
         />
         <div class="submit-kaste" id="submit-kaste">
             <button type="submit" class="submit">
-                Meklēt
+                @lang('messages.search')
             </button>
         </div>
     </div>

@@ -19,17 +19,17 @@
             </a>
         </div>
         <div class="small-title">
-            <h2>Uzdevumi pa taisno pie tevis!</h2>
+            <h2>@lang('messages.title')</h2>
         </div>
         @auth
         <ul class="top-right">
             <li>
-                    <p>Lietotājs {{auth()->user()->name}}</p>
+                    <p>@lang('messages.user') {{auth()->user()->name}}</p>
             </li>
             <li>
                 <form class="logout" method="POST" action="/logout">
                     @csrf
-                    <button type="submit" class="logoutbut">Logout</button>
+                    <button type="submit" class="logoutbut">@lang('messages.logout')</button>
                 </form>
             </li>
         </ul>
@@ -37,11 +37,11 @@
         <ul class="top-right">
             <li>
                 <a href="/register" class="register">
-                    Reģistrēties</a>
+                    @lang('messages.registration')</a>
             </li>
             <li>
                 <a href="/login" class="login">
-                    Pieslēgties</a>
+                    @lang('messages.login')</a>
             </li>
         </ul>
         @endauth
@@ -51,6 +51,10 @@
 
     <x-flash-message>
     </x-flash-message>
+    <div class="lang">
+        <a href="{{ url('change-language/lv') }}">LV</a>
+        <a href="{{ url('change-language/en') }}">EN</a>
+    </div>
 
 </body>
 </html>

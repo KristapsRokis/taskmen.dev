@@ -2,6 +2,7 @@
 
 use App\Models\Task;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\UserController;
@@ -64,3 +65,16 @@ Route::get('/login', [UserController::class, 'login'])->name('login')->middlewar
 
 //Pierakstīties
 Route::post('/users/authenticate', [UserController::class, 'authenticate']);
+
+//Lang
+Route::get('/change-language/{locale}', function ($locale) {
+    if (!in_array($locale, ['en', 'lv'])) {        
+        abort(404);
+    }
+
+    App::setLocale($locale);
+    // Session
+    session()->put('locale', $locale);
+
+    return redirect()->back();
+});

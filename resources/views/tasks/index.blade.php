@@ -5,25 +5,25 @@
 
 @if(count($tasks) == 0)
     <div class="empty">
-    Netika atrasts neviens uzdevums
+        @lang('messages.empty')
     </div>
 @else
     <main class="main">
         <ul class="legenda-parent">
             <li class="legenda-title">
-                Nosaukums
+                @lang('messages.tit')
             </li>
             <li class="legenda-desc">
-                Apraksts
+                @lang('messages.desc')
             </li>
             <li class="legenda-due">
-                    <a href="/termins">Termiņš</a>
+                    <a href="/termins">@lang('messages.due')</a>
             </li>
             <li class="legenda-prority">
-                <a href="/prioritate">Prioritāte</a>
+                <a href="/prioritate">@lang('messages.priority')</a>
             </li>
             <li class="legenda-status">
-                <a href="/statuss">Statuss</a>
+                <a href="/statuss">@lang('messages.statuss')</a>
             </li>
         </ul>
         @foreach($tasks as $task)

@@ -6,7 +6,7 @@
             class="c-subbox"
         >
             <h2 class="center">
-                Reģistrēties
+                @lang('messages.registration')
             </h2>
 
             <form method="POST" action="/users" class="c-form">
@@ -15,7 +15,7 @@
                     <label
                         for="name"
                         class="c-nosaukums"
-                        ><p>Vārds uzvārds<p></label
+                        ><p>@lang('messages.name')<p></label
                     >
                     <input
                         type="text"
@@ -31,7 +31,7 @@
                     <label
                         for="email"
                         class="c-nosaukums"
-                        ><p>E-pasts<p></label
+                        ><p>@lang('messages.email')<p></label
                     >
                     <input
                         type="email"
@@ -47,15 +47,15 @@
                     <label
                         for="tags"
                         class="c-nosaukums"
-                        ><p>Amats<p></label
+                        ><p>@lang('messages.tag')<p></label
                     >
                     <select
                         type="text"
                         class="c-ramis"
                         name="tags"
                         value="{{old('tags')}}">
-                        <option value="Finanses" {{ old('tags') == 'Finanses' ? 'selected' : '' }}>Finanšu pārstāvis</option>
-                        <option value="Apkalpojošais" {{ old('tags') == 'Apkalpojošais' ? 'selected' : '' }}>Apkalpojošais personāls</option>
+                        <option value="Finanses" {{ old('tags') == 'Finanses' ? 'selected' : '' }}>@lang('messages.finanse')</option>
+                        <option value="Apkalpojošais" {{ old('tags') == 'Apkalpojošais' ? 'selected' : '' }}>@lang('messages.apkalp')</option>
                     </select>
                     </select>
                     @error('tags')
@@ -66,7 +66,7 @@
                     <label
                         for="password"
                         class="c-nosaukums"
-                        ><p>Parole<p></label
+                        ><p>@lang('messages.password')<p></label
                     >
                     <input
                         type="password"
@@ -82,7 +82,7 @@
                     <label
                         for="password_confirmation"
                         class="c-nosaukums"
-                        ><p>Apstiprināt paroli<p></label
+                        ><p>@lang('messages.passwordconf')<p></label
                     >
                     <input
                         type="password"
@@ -98,10 +98,10 @@
                     <button
                         class="c-poga"
                     >
-                        Reģistrēties 
+                    @lang('messages.registration') 
                     </button>
 
-                    <a href="/login" class="atcelt-re"><p>Reģistrētiem lietotājiem</p> </a>
+                    <a href="/login" class="atcelt-re"><p>@lang('messages.registeruser')</p> </a>
                 </div>
             </form>
         </div>

@@ -1,3 +1,3 @@
 <a href="/task/create" class="create-task-button">
-    Izveidot uzdevumu
+    @lang('messages.createbut')
 </a>
