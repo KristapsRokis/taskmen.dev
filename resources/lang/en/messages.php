@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'registration' => 'Sing up',
+    'registration' => 'Sign up',
     'login' => 'Login',
     'title' => 'Tasks directly to you!',
     'email' => 'Email',
