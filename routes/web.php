@@ -21,13 +21,13 @@ use App\Http\Controllers\UserController;
 Route::get('/', [TaskController::class, 'index'])->middleware('auth')->name('tasks');
 
 //Kārtot pēc termiņa
-Route::get('/termins', [TaskController::class, 'termins']);
+Route::get('/termins', [TaskController::class, 'termins'])->middleware('auth');
 
 //Kārtot pēc prioritātes
-Route::get('/prioritate', [TaskController::class, 'prioritate']);
+Route::get('/prioritate', [TaskController::class, 'prioritate'])->middleware('auth');
 
 //Kārtot pēc statusa
-Route::get('/statuss', [TaskController::class, 'statuss']);
+Route::get('/statuss', [TaskController::class, 'statuss'])->middleware('auth');
 
 //Izveidot uzdevumu
 Route::get('/task/create', [TaskController::class, 'create'])->middleware('admin');
@@ -64,11 +64,3 @@ Route::get('/login', [UserController::class, 'login'])->name('login')->middlewar
 
 //Pierakstīties
 Route::post('/users/authenticate', [UserController::class, 'authenticate']);
-
-//Valodas
-Route::get('locale/{locale}', function ($locale) {
-    if (in_array($locale, ['en', 'lv'])) {
-        session(['locale' => $locale]);
-    }
-    return redirect('/');
-})->name('locale');

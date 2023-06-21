@@ -107,8 +107,4 @@
         </div>
     </div>
 </main>
-
-
-
-
 @endsection

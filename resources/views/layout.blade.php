@@ -11,7 +11,7 @@
 <body>
     <div class="page-top">
         <a href="/" class="logo-place">
-            <img class="logo" src="/img/logo.png" alt="Logo" class="logo_img"/>
+            <img class="logo" src="/img/logo.png" alt="Logo">
         </a>
         <div class="big-title">
             <a href="/">
@@ -21,8 +21,8 @@
         <div class="small-title">
             <h2>Uzdevumi pa taisno pie tevis!</h2>
         </div>
+        @auth
         <ul class="top-right">
-            @auth
             <li>
                     <p>Lietotājs {{auth()->user()->name}}</p>
             </li>
@@ -32,7 +32,9 @@
                     <button type="submit" class="logoutbut">Logout</button>
                 </form>
             </li>
-            @else
+        </ul>
+        @else
+        <ul class="top-right">
             <li>
                 <a href="/register" class="register">
                     Reģistrēties</a>
@@ -41,18 +43,14 @@
                 <a href="/login" class="login">
                     Pieslēgties</a>
             </li>
-            @endauth
         </ul>
+        @endauth
     </div>
 
     @yield('content')
 
-    <x-flash-message />
-    <div class="lang">
-        <a href="{{ route('locale', ['locale' => 'lv']) }}">Latviešu</a>
-        <a href="{{ route('locale', ['locale' => 'en']) }}">English</a>
-    </div>
-    
+    <x-flash-message>
+    </x-flash-message>
 
 </body>
 </html>

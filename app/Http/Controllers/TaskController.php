@@ -13,13 +13,13 @@ class TaskController extends Controller
     public function index() {
         
         if(auth()->user()->admin) {
-            $userTags=['Kolektīvs', 'Apkalpojošais', 'Finanses'];
+            $userTags=['Kolektīvs','Apkalpojošais','Finanses'];
         }
 
         else{
             $userTags=auth()->user()->tags;
             if (is_string($userTags)) {
-                $userTags = [$userTags, 'Kolektīvs'];
+                $userTags = [$userTags,'Kolektīvs'];
             }
         }
 
@@ -40,16 +40,16 @@ class TaskController extends Controller
         }
 
         if(auth()->user()->admin) {
-            $userTags=['Kolektīvs', 'Apkalpojošais', 'Finanses'];
+            $userTags=['Kolektīvs','Apkalpojošais','Finanses'];
         }
         else{
             $userTags=auth()->user()->tags;
             if (is_string($userTags)) {
-                $userTags = [$userTags, 'Kolektīvs'];
+                $userTags = [$userTags,'Kolektīvs'];
             }
         }
         
-        $request->session()->put('terminsOrder', $terminsOrder);
+        $request->session()->put('terminsOrder',$terminsOrder);
 
         $tasks = DB::table('tasks')
                 ->whereIn('tags', $userTags)
@@ -71,12 +71,12 @@ class TaskController extends Controller
         }
 
         if(auth()->user()->admin) {
-            $userTags=['Kolektīvs', 'Apkalpojošais', 'Finanses'];
+            $userTags=['Kolektīvs','Apkalpojošais','Finanses'];
         }
         else{
             $userTags=auth()->user()->tags;
             if (is_string($userTags)) {
-                $userTags = [$userTags, 'Kolektīvs'];
+                $userTags = [$userTags,'Kolektīvs'];
             }
         }
         
@@ -101,12 +101,12 @@ class TaskController extends Controller
         }
 
         if(auth()->user()->admin) {
-            $userTags=['Kolektīvs', 'Apkalpojošais', 'Finanses'];
+            $userTags=['Kolektīvs','Apkalpojošais','Finanses'];
         }
         else{
             $userTags=auth()->user()->tags;
             if (is_string($userTags)) {
-                $userTags = [$userTags, 'Kolektīvs'];
+                $userTags = [$userTags,'Kolektīvs'];
             }
         }
         
@@ -122,23 +122,25 @@ class TaskController extends Controller
 
     //single
     public function show(Task $task) {
-        $userTags=auth()->user()->tags;
-        $tags = explode(',', $userTags);
-        foreach ($tags as $tag) {
-            if($tag == $task['tags'] or auth()->user()->admin) {
+        if(auth()->user()->admin) {
+            $userTags=['Kolektīvs','Apkalpojošais','Finanses'];
+        }
+        else{
+            $userTags=auth()->user()->tags;
+            if (is_string($userTags)) {
+                $userTags = [$userTags,'Kolektīvs'];
+            }
+        }
+        
+        foreach ($userTags as $tag) {
+            if ($tag == $task['tags'] || auth()->user()->admin) {
                 return view('tasks.show', [
                     'task' => $task
                 ]);
-                break;
-            }
-            else {
-                return redirect('/')->with('message', 'Jums nav pieejams šis uzdevums!');
             }
         }
-
-        return view('tasks.show', [
-            'task' => $task
-        ]);
+    
+        return redirect('/')->with('message', 'Jums nav pieejams šis uzdevums!');
     }
 
     public function create() {

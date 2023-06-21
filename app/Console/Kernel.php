@@ -2,6 +2,8 @@
 
 namespace App\Console;
 
+use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -12,7 +14,12 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        // $schedule->command('inspire')->hourly();
+        $schedule->call(function () {
+            $pastDate = Carbon::yesterday();
+            DB::table('statuses')
+            ->where('duedate', '<', $pastDate)
+            ->update(['status' => 'Termiņš beidzies!']);
+        })->dailyAt('00:00');
     }
 
     /**

@@ -469,7 +469,7 @@ a{
     margin-left: 4vw;
     font-size: 1vw;
     border-radius: 0.2vw;
-    background-color: none;
+    background-color: rgb(0, 0, 0, 0);
     border:none;
     font-family: 'Roboto', sans-serif;
 }
@@ -532,15 +532,4 @@ a{
     width: 35%;
     font-size: 1vw;
     font-family: 'Roboto', sans-serif;
-}
-
-.lang{
-    position: fixed;
-    bottom: 0.8vw;
-    left: 0;
-}
-
-.lang a{
-    margin-left: 0.5vw;
-    font-size: 0.9vw;
 }

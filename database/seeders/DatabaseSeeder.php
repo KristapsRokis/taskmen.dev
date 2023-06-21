@@ -93,3 +93,5 @@ class DatabaseSeeder extends Seeder
         ]);
     }
 }
+
+//php artisan migrate:fresh --seed

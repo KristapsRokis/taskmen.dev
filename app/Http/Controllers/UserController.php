@@ -52,7 +52,7 @@ class UserController extends Controller
         if(auth()->attempt($formFields)) {
             $request->session()->regenerate();
 
-            return redirect()->route('tasks')->with('success', __('messages.welcome'));
+            return redirect('/')->with('message', 'Jūs esat pievienojies!');
         }
 
         return back()->withErrors(['email' => 'Invalid Credentials'])->onlyInput('email');
