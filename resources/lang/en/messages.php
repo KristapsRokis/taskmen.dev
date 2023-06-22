@@ -2,7 +2,7 @@
 
 return [
     'registration' => 'Sign up',
-    'login' => 'Login',
+    'login' => 'Log in',
     'title' => 'Tasks directly to you!',
     'email' => 'Email',
     'password' => 'Password',
@@ -13,7 +13,7 @@ return [
     'user' => 'User',
     'finanse' => 'Finance',
     'apkalp' => 'Service staff',
-    'logout' => 'Logout',
+    'logout' => 'Log out',
     'empty' => 'No task was found!',
     'tit' => 'Title',
     'desc' => 'Description',
@@ -37,12 +37,12 @@ return [
     'tedit' => 'Edit task',
     'store' => 'User created, you are logged in!',
     'authen' => 'You are logged in!',
-    'emailerr' => 'Invalid Credentials',
+    'emailerr' => 'Invalid credentials',
     'exit' => 'You logged out!',
-    'admin' => 'You dont have access to this task!',
+    'admin' => 'You do not have access to this task!',
     'success' => 'Task created successfully!',
-    'cedit' => 'Task eddited successfully!',
-    'csent' => 'Task submited successfully!',
+    'cedit' => 'Task edited successfully!',
+    'csent' => 'Task submitted successfully!',
     'cdel' => 'Task deleted successfully!'
 ];
 
